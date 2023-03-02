@@ -3,12 +3,19 @@ import { useContext } from "react";
 import { AppContext } from "../../App";
 
 export default function TypingAnimation(props) {
-	const { cursorDefault, cursorBig, cursorTextChange } = useContext(AppContext);
+	const { cursorDefault, cursorBig, cursorTextChange, toggleAnimate } =
+		useContext(AppContext);
 
-	const mouseEnterChange = (a) => e => {
+	const mouseEnterChange = (a) => (e) => {
 		cursorBig();
+		toggleAnimate();
 		cursorTextChange(a);
-	}
+	};
+
+	const mouseLeave = () => {
+		cursorDefault();
+		toggleAnimate();
+	};
 
 	const container = {
 		hidden: { opacity: 1, y: -40 },
@@ -27,18 +34,21 @@ export default function TypingAnimation(props) {
 	};
 
 	const item = {
-		hidden: { opacity: 0, y: -40 },
+		hidden: {
+			opacity: 0,
+			y: -40,
+		},
 		visible: {
 			opacity: 1,
-			y: 40,
+			y: 200,
 		},
-		// transition: {
-		// 	duration: 1,
-		// },
+		transition: {
+			ease: [0.6, 0.1, -0.5, 0.95],
+			duration: 1.6,
+		},
 	};
 
-	const style = props.styling + " inline m-0"
-
+	const style = props.styling + " inline m-0";
 
 	return (
 		<>
@@ -47,8 +57,9 @@ export default function TypingAnimation(props) {
 				initial="hidden"
 				animate="visible"
 				onMouseEnter={mouseEnterChange(props.cursor)}
-				onMouseLeave={cursorDefault}
-				className="mr-auto inline w-fit list-none">
+				onMouseLeave={mouseLeave}
+				className="inline w-fit list-none"
+			>
 				{props.text.split("").map((child) => (
 					<motion.li
 						className={style}

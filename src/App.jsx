@@ -26,6 +26,8 @@ function App() {
 
 	const [cursorText, setCursorText] = useState("");
 
+	const [animate, setAnimate] = useState(false);
+
 	const variant = {
 		invisible: {
 			x: mousePosition.x - 16,
@@ -35,7 +37,7 @@ function App() {
 		default: {
 			x: mousePosition.x - 16,
 			y: mousePosition.y - 16,
-			backgroundColor: "#8a51ed",
+			backgroundColor: "#6EFFB1",
 		},
 		big: {
 			x: mousePosition.x - 75,
@@ -43,13 +45,17 @@ function App() {
 			height: 150,
 			width: 150,
 			// backgroundColor: "white",
-			backgroundColor: "#ddcbff",
+			backgroundColor: "#a3ffce",
 			mixBlendMode: "difference",
 		},
 	};
 
 	const cursorTextChange = (a) => {
 		setCursorText(a);
+	};
+
+	const toggleAnimate = () => {
+		setAnimate(!animate);
 	};
 
 	const cursorInvisible = () => {
@@ -81,8 +87,6 @@ function App() {
 	const invisible = "_";
 	// const invisible = " ‎";
 
-
-
 	return (
 		<div className="App">
 			<AppContext.Provider
@@ -91,6 +95,7 @@ function App() {
 					cursorDefault,
 					cursorBig,
 					cursorTextChange,
+					toggleAnimate,
 				}}
 			>
 				<motion.div
@@ -98,34 +103,41 @@ function App() {
 					variants={variant}
 					animate={cursorVariant}
 				>
-					<motion.div
-						rotate
-						animate={{ rotate: 360 }}
-						transition={{
-							ease: "linear",
-							duration: 5,
-							repeat: Infinity,
-						}}
-						className="font-mono"
-					>
-						<ReactCurvedText
-							width="150"
-							height="150"
-							cx="75"
-							cy="75"
-							rx="65"
-							ry="65"
-							startOffset="0"
-							reversed={false}
-							// text={invisible.repeat(54)}
-							text={invisible.repeat(26 - cursorText.length) + cursorText + invisible.repeat(27 - cursorText.length) + cursorText}
-							textProps={{ style: { fontSize: "14" } }}
-							textPathProps={null}
-							tspanProps={null}
-							ellipseProps={null}
-							svgProps={null}
-						/>
-					</motion.div>
+					{animate && (
+						<motion.div
+							rotate
+							animate={{ rotate: 360 }}
+							transition={{
+								ease: "linear",
+								duration: 5,
+								repeat: Infinity,
+							}}
+							className="font-mono"
+						>
+							<ReactCurvedText
+								width="150"
+								height="150"
+								cx="75"
+								cy="75"
+								rx="65"
+								ry="65"
+								startOffset="0"
+								reversed={false}
+								// text={invisible.repeat(54)}
+								text={
+									invisible.repeat(26 - cursorText.length) +
+									cursorText +
+									invisible.repeat(27 - cursorText.length) +
+									cursorText
+								}
+								textProps={{ style: { fontSize: "14" } }}
+								textPathProps={null}
+								tspanProps={null}
+								ellipseProps={null}
+								svgProps={null}
+							/>
+						</motion.div>
+					)}
 				</motion.div>
 
 				<ScrollIndicator />

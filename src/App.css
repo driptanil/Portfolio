@@ -31,12 +31,7 @@
 	border: 2px solid #fff;
 }
 html {
-	background: linear-gradient(
-		282.9deg,
-		#8a51ed -4.47%,
-		#22163a 48.13%,
-		#050509 88.83%
-	);
+	background: #171717;
 	color: white;
 }
 
@@ -70,11 +65,32 @@ html {
 	border-radius: 16px;
 }
 
+.lime1 {
+	color: #b5ffa2;
+	stroke: rgb(181, 255, 162, 0.7);
+}
+
+.lime2 {
+	color: #6effb1;
+	stroke: rgb(110, 255, 177, 0.7);
+}
+
+.flipX {
+	transform: scaleX(-1);
+}
+
+.flipY {
+	transform: scaleY(-1);
+}
+
+.rotate-135 {
+	transform: rotate(-135deg);
+	scale: 0.8;
+}
+
 .name {
 	font-style: normal;
 	font-weight: 700;
-	/* color: #8a51ed; */
-	color: rgba(255, 255, 255, 0.73);
 }
 
 .white {
@@ -115,6 +131,7 @@ html {
 	top: 20px;
 	right: 20px;
 	transform: rotate(-90deg);
+	z-index: 30;
 }
 
 #progress .scrollIndicator {

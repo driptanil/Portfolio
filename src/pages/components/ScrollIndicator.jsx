@@ -25,7 +25,7 @@ export function ScrollIndicator() {
 					cy="50"
 					r="30"
 					pathLength="5"
-					className="scrollIndicator"
+					className="lime2"
 					style={{ pathLength: scrollYProgress }}
 				/>
 			</svg>
