@@ -24,7 +24,7 @@ export const Navbar = () => {
 		>
 			<Link
 				className=""
-				to="Portfolio/"
+				to="/Portfolio/"
 				onMouseEnter={mouseEnterChange("home")}
 				onMouseLeave={mouseLeave}
 			>
@@ -32,7 +32,7 @@ export const Navbar = () => {
 			</Link>
 			<Link
 				className=""
-				to="Portfolio/about"
+				to="/Portfolio/about"
 				onMouseEnter={mouseEnterChange("about")}
 				onMouseLeave={mouseLeave}
 			>
@@ -40,7 +40,7 @@ export const Navbar = () => {
 			</Link>
 			<Link
 				className=""
-				to="Portfolio/projects"
+				to="/Portfolio/projects"
 				onMouseEnter={mouseEnterChange("projects")}
 				onMouseLeave={mouseLeave}
 			>
@@ -48,7 +48,7 @@ export const Navbar = () => {
 			</Link>
 			<Link
 				className=""
-				to="Portfolio/skills"
+				to="/Portfolio/skills"
 				onMouseEnter={mouseEnterChange("skills")}
 				onMouseLeave={mouseLeave}
 			>
@@ -56,7 +56,7 @@ export const Navbar = () => {
 			</Link>
 			<Link
 				className=""
-				to="Portfolio/contact"
+				to="/Portfolio/contact"
 				onMouseEnter={mouseEnterChange("contact")}
 				onMouseLeave={mouseLeave}
 			>
