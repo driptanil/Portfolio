@@ -69,13 +69,13 @@ function Section(props) {
 	return (
 		<>
 			<motion.div
-				className="flex flex-col items-center justify-center rounded-3xl "
+				className="flex flex-col items-center justify-center rounded-3xl"
 				variants={container}
 				initial="hidden"
 				whileInView="visible"
 				viewport={{ once: true, amount: 0.8 }}
 			>
-				<h2 className="px-10 text-6xl mr-auto">#00{props.index}</h2>
+				<h2 className="mr-auto px-10 text-6xl">#00{props.index}</h2>
 				<motion.li variants={item} className="my-4 list-none text-3xl">
 					<p> My </p>
 				</motion.li>
@@ -102,7 +102,9 @@ function Section(props) {
 									hoverEffect === index2
 										? { scale: 1.25 }
 										: hoverEffect !== -1
-										? { WebkitFilter: "blur(2px)" }
+										? {
+												//  WebkitFilter: "blur(2px)"
+										  }
 										: {}
 								}
 								className="lime1 mx-3 cursor-none rounded-full bg-slate-700 px-4 py-1 text-xl"
@@ -133,7 +135,9 @@ function Section(props) {
 												scale: 1.25,
 										  }
 										: hoverEffect !== -1
-										? { WebkitFilter: "blur(4px)" }
+										? {
+												//  WebkitFilter: "blur(4px)"
+										  }
 										: {}
 								}
 							>
@@ -236,7 +240,7 @@ export default function About() {
 		<>
 			{aboutData.map((data, index) => {
 				return (
-					<div className="sticky top-32 mx-16 flex flex-row rounded-2xl bg-gradient-to-t from-neutral-900 to-neutral-800 pt-6 pb-32">
+					<div className="mx-16 mt-40 flex flex-row rounded-2xl bg-gradient-to-t from-neutral-900 to-neutral-800 pt-6 pb-40">
 						<Section data={data} index={index + 1} />
 					</div>
 				);

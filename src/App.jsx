@@ -13,6 +13,7 @@ import Skills from "./pages/Skills";
 import Contact from "./pages/Contact";
 
 import { Navbar } from "./Navbar";
+import InProgress from "./InProgess";
 
 export const AppContext = createContext();
 
@@ -144,6 +145,7 @@ function App() {
 
 				<Router>
 					<Navbar />
+					<InProgress/>
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/about" element={<About />} />
