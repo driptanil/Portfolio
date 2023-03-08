@@ -3,18 +3,18 @@ import { useContext } from "react";
 import { AppContext } from "../../App";
 
 export default function TypingAnimation(props) {
-	const { cursorDefault, cursorBig, cursorTextChange, toggleAnimate } =
+	const { cursorDefault, cursorBig, cursorTextChange, onAnimate, offAnimate } =
 		useContext(AppContext);
 
 	const mouseEnterChange = (a) => (e) => {
 		cursorBig();
-		toggleAnimate();
+		onAnimate();
 		cursorTextChange(a);
 	};
 
 	const mouseLeave = () => {
 		cursorDefault();
-		toggleAnimate();
+		offAnimate();
 	};
 
 	const container = {
@@ -55,7 +55,7 @@ export default function TypingAnimation(props) {
 			<motion.div
 				variants={container}
 				initial="hidden"
-				animate="visible"
+				whileInView="visible"
 				onMouseEnter={mouseEnterChange(props.cursor)}
 				onMouseLeave={mouseLeave}
 				className="inline w-fit list-none"

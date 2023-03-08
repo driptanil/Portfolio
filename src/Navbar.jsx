@@ -3,24 +3,24 @@ import { AppContext } from "./App";
 import { useContext } from "react";
 
 export const Navbar = () => {
-	const { cursorDefault, cursorBig, cursorTextChange, toggleAnimate } =
+	const { cursorDefault, cursorBig, cursorTextChange, onAnimate, offAnimate } =
 		useContext(AppContext);
 
 	const mouseEnterChange = (a) => (e) => {
 		cursorBig();
 		cursorTextChange(a);
-		toggleAnimate();
+		onAnimate();
 	};
 
 	const mouseLeave = () => {
 		cursorDefault();
-		toggleAnimate();
+		offAnimate();
 	};
 
 	return (
 		<div
 			className="lime1 fixed top-10 flex w-1/2 items-center
-		 justify-around rounded-full p-10 text-xl backdrop-blur-sm"
+		 justify-around rounded-full p-10 text-xl backdrop-blur-sm z-10"
 		>
 			<Link
 				className=""

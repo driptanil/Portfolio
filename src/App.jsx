@@ -55,9 +55,13 @@ function App() {
 		setCursorText(a);
 	};
 
-	const toggleAnimate = () => {
-		setAnimate(!animate);
+	const onAnimate = () => {
+		setAnimate(true);
 	};
+
+	const offAnimate = () => {
+		setAnimate(false);
+	}
 
 	const cursorInvisible = () => {
 		setCursorVariant("invisible");
@@ -96,11 +100,12 @@ function App() {
 					cursorDefault,
 					cursorBig,
 					cursorTextChange,
-					toggleAnimate,
+					onAnimate,
+					offAnimate,
 				}}
 			>
 				<motion.div
-					className="cursor"
+					className="h-8 w-8 rounded-full fixed overflow-hidden top-0 pointer-events-none z-30"
 					variants={variant}
 					animate={cursorVariant}
 				>

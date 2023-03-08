@@ -4,7 +4,8 @@ import { useState, useContext } from "react";
 import { AppContext } from "../App";
 
 function Section(props) {
-	const { cursorInvisible, cursorDefault } = useContext(AppContext);
+	const { cursorInvisible, cursorDefault, offAnimate } =
+		useContext(AppContext);
 
 	const container = {
 		hidden: { opacity: 0 },
@@ -48,11 +49,13 @@ function Section(props) {
 	const resetFocus = () => {
 		cursorDefault();
 		setHoverEffect(-1);
+		offAnimate();
 	};
 
 	const focus = (a) => (e) => {
 		cursorInvisible();
 		setHoverEffect(a);
+		offAnimate();
 	};
 
 	const section = props.data;
@@ -104,6 +107,7 @@ function Section(props) {
 										: hoverEffect !== -1
 										? {
 												//  WebkitFilter: "blur(2px)"
+												color: "rgba(181, 255, 162, 0.5)",
 										  }
 										: {}
 								}
@@ -117,6 +121,8 @@ function Section(props) {
 
 				<motion.ol
 					variants={container2}
+					// initial="initial"
+					// whileInView="visible"
 					className="mx-20 mt-6 flex list-decimal flex-row items-center justify-between text-lg text-slate-300"
 				>
 					{section.details.map((point, index2) => {
@@ -137,6 +143,8 @@ function Section(props) {
 										: hoverEffect !== -1
 										? {
 												//  WebkitFilter: "blur(4px)"
+												color: "rgb(241 245 249 / 0.3)",
+												
 										  }
 										: {}
 								}
@@ -204,12 +212,7 @@ export default function About() {
 		},
 		{
 			title: "Meticulosity",
-			button: [
-				"my nature",
-				"my experience",
-				"my benefits",
-				"my conclusion",
-			],
+			button: ["my nature", "my experience", "my conclusion"],
 			details: [
 				<>
 					I can’t leave an assignment till I feel all the aspects in
@@ -217,20 +220,30 @@ export default function About() {
 					<p className="lime1 inline">complete in the true sense</p>{" "}
 					and there is no room for further improvement.
 				</>,
+				// <>
+				// 	For this reason, sometimes I can accomplish a job at the
+				// 	last moment of the deadline only because I think the extra
+				// 	time spent,{" "}
+				// 	<p className="lime1 inline">saves time and money</p>.
+				// </>,
 				<>
-					For this reason, sometimes I can accomplish a job at the
-					last moment of the deadline only because I think the extra
-					time spent,{" "}
-					<p className="lime1 inline">saves time and money</p>.
+					Although it requires more time and effort, I think it
+					<p className="lime1 inline">
+						{" "}
+						saves time and money in the future
+					</p>
+					. From my point of view, a quick and shortcut process adds
+					only the burden of botheration and inefficiency in future.
 				</>,
+				// <>
+				// 	According to me, a quick and shortcut process adds only the
+				// 	burden of botheration and inefficiency in future.
+				// </>,
 				<>
-					According to me, a quick and shortcut process adds only the
-					burden of botheration and inefficiency in future.
-				</>,
-				<>
-					Lately, I am able to improvise my attitude to meet the
-					deadline with an intimation of a red flag to the assignor of
-					the job.
+					This causes me to accomplish a job at the last moment of the
+					deadline. Lately, I am able to improvise my attitude to{" "}
+					<p className="lime1 inline"> meet the deadline </p>
+					with an intimation of a red flag to the assignor of the job.
 				</>,
 			],
 		},
@@ -240,7 +253,7 @@ export default function About() {
 		<>
 			{aboutData.map((data, index) => {
 				return (
-					<div className="mx-16 mt-40 flex flex-row rounded-2xl bg-gradient-to-t from-neutral-900 to-neutral-800 pt-6 pb-40">
+					<div className="z-0 mx-16 mt-40 flex flex-row rounded-2xl bg-gradient-to-t from-neutral-900 to-neutral-800 pt-6 pb-40">
 						<Section data={data} index={index + 1} />
 					</div>
 				);

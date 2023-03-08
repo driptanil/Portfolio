@@ -1,7 +1,7 @@
 export default function InProgress() {
 	return (
 		<div
-			class="fixed top-0 m-auto flex w-full items-center justify-center bg-emerald-400/20 p-2 leading-none text-neutral-200 lg:inline-flex lg:rounded-full backdrop-blur-sm"
+			class="fixed top-0 m-auto flex w-full items-center justify-center bg-emerald-400/20 p-2 leading-none text-neutral-200 lg:inline-flex lg:rounded-full backdrop-blur-sm z-20"
 			role="alert"
 		>
 			<span class="mr-3 flex rounded-full bg-emerald-800 p-1 text-3xl font-bold uppercase">

@@ -22,13 +22,13 @@
 }
 
 *::-webkit-scrollbar-track {
-	background: #8852f1;
+	background-color: #b5ffa2;
 }
 
 *::-webkit-scrollbar-thumb {
-	background-color: #daadff;
+	background: #6effb1;
 	border-radius: 15px;
-	border: 2px solid #fff;
+	border: 2px solid #000000;
 }
 html {
 	background: #171717;
@@ -54,7 +54,7 @@ html {
 	overflow: hidden;
 	top: 0;
 	pointer-events: none;
-	z-index: 10;
+	z-index: 30;
 }
 
 .pic {
@@ -66,7 +66,7 @@ html {
 }
 
 .lime1 {
-	color: #b5ffa2;
+	color: rgb(181, 255, 162);
 	stroke: rgb(181, 255, 162, 0.7);
 }
 
