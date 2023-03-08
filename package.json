@@ -1,5 +1,6 @@
 {
-	"name": "14-portfolio",
+	"homepage": "https://driptanil.github.io/Portfolio/",
+	"name": "Portfolio",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
