@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9477bef7.css",
+    "main.js": "/static/js/main.04b5acc6.js",
+    "static/media/SpaceGrotesk-VariableFont_wght.ttf": "/static/media/SpaceGrotesk-VariableFont_wght.1036357b9651eff7d3dd.ttf",
+    "static/media/Leaf3.svg": "/static/media/Leaf3.80cd835e91baab5651de8f516c28da45.svg",
+    "static/media/Leaf2.svg": "/static/media/Leaf2.4d75164394d73a729fe646060bd2a36b.svg",
+    "static/media/Leaf1.svg": "/static/media/Leaf1.224e0b99d551d7a985e48f3babe83889.svg",
+    "index.html": "/index.html",
+    "main.9477bef7.css.map": "/static/css/main.9477bef7.css.map",
+    "main.04b5acc6.js.map": "/static/js/main.04b5acc6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9477bef7.css",
+    "static/js/main.04b5acc6.js"
+  ]
+}
