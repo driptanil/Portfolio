@@ -1,8 +1,13 @@
 import TypingAnimation from "./components/TypingAnimation";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import Iframe from "react-iframe";
+import { useContext } from "react";
+import { AppContext } from "../App";
 
 export default function Projects() {
+	const { cursorDefault, cursorInvisible } = useContext(AppContext);
+
 	const container = {
 		hidden: { opacity: 0 },
 		visible: {
@@ -29,29 +34,6 @@ export default function Projects() {
 
 	const projectData = [
 		{
-			name: "Crypto Live Visualizer App",
-			link: "https://crypto-live-visualizer.onrender.com/",
-			details: "",
-			features: [
-				<>Real-time market data</>,
-				<>Percentage of Profit / Loss of 30 mins, 7 and 6 months</>,
-				<>Candle Stick Graph for short term</>,
-				<>Line Graph for long term</>,
-			],
-			ingredients: [
-				<>Percentage of Profit / Loss of 30 mins, 7 and 6 months</>,
-				<>
-					<b className="text-xl">Plotly</b> and{" "}
-					<b className="text-xl">Dash</b> library used to create
-					candlestick and line graph visualization.
-				</>,
-				<>
-					<b className="text-xl">Render</b> platform is used to
-					deploy.
-				</>,
-			],
-		},
-		{
 			name: "Social Media App",
 			link: "https://social-hot-takes.web.app/",
 			details: "A Hot Takes sharing app made using React JS",
@@ -76,6 +58,29 @@ export default function Projects() {
 				</>,
 			],
 		},
+		{
+			name: "Crypto Live Visualizer App",
+			link: "https://crypto-live-visualizer.onrender.com/",
+			details: "",
+			features: [
+				<>Real-time market data</>,
+				<>Percentage of Profit / Loss of 30 mins, 7 and 6 months</>,
+				<>Candle Stick Graph for short term</>,
+				<>Line Graph for long term</>,
+			],
+			ingredients: [
+				<>Percentage of Profit / Loss of 30 mins, 7 and 6 months</>,
+				<>
+					<b className="text-xl">Plotly</b> and{" "}
+					<b className="text-xl">Dash</b> library used to create
+					candlestick and line graph visualization.
+				</>,
+				<>
+					<b className="text-xl">Render</b> platform is used to
+					deploy.
+				</>,
+			],
+		},
 	];
 
 	return (
@@ -83,12 +88,12 @@ export default function Projects() {
 			{projectData.map((section, index) => {
 				return (
 					<motion.div
-						className="pt-30 mt-24 flex flex-row items-center"
+						className="pt-30 mt-24 flex flex-row items-center max-xl:flex-col"
 						variants={container}
 						initial="hidden"
 						animate="visible"
 					>
-						<div className="w-2/5 p-20">
+						<div className="w-2/5 px-20 pt-20 max-xl:w-full">
 							<Link
 								to={section.link}
 								target="_blank"
@@ -100,51 +105,62 @@ export default function Projects() {
 									stagger={0.125}
 									cursor="project link"
 									duration={0}
-									styling="text-6xl name lime2"
+									styling="text-6xl max-xl:text-7xl name lime2"
 								/>
 							</Link>
 							<hr className="mb-2 h-2 w-10 bg-neutral-50"></hr>
 							<motion.text variants={item}></motion.text>
-
-							<motion.text
-								variants={item}
-								className="m-8 block text-4xl font-bold lime1"
-							>
-								Features:
-							</motion.text>
-							<ul className="ml-16 list-disc text-lg leading-8">
-								{section.features.map((feature, index2) => {
-									return (
-										<motion.li variants={item}>
-											{feature}
-										</motion.li>
-									);
-								})}
-							</ul>
-
-							<motion.text
-								variants={item}
-								className="m-8 block text-4xl font-bold lime1"
-							>
-								Ingredients:
-							</motion.text>
-							<ul className="ml-16 list-disc text-lg leading-10">
-								{section.ingredients.map(
-									(ingredient, index2) => {
-										return (
-											<motion.li variants={item}>
-												{ingredient}
-											</motion.li>
-										);
-									}
-								)}
-							</ul>
+							<div className="flex flex-col max-xl:flex-row max-xl:items-center">
+								<div>
+									<motion.text
+										variants={item}
+										className="lime1 m-8 block text-4xl font-bold"
+									>
+										Features:
+									</motion.text>
+									<ul className="ml-16 list-disc text-lg leading-10">
+										{section.features.map(
+											(feature, index2) => {
+												return (
+													<motion.li variants={item}>
+														{feature}
+													</motion.li>
+												);
+											}
+										)}
+									</ul>
+								</div>
+								<div>
+									<motion.text
+										variants={item}
+										className="lime1 m-8 block text-4xl font-bold"
+									>
+										Ingredients:
+									</motion.text>
+									<ul className="ml-16 list-disc text-lg leading-10">
+										{section.ingredients.map(
+											(ingredient, index2) => {
+												return (
+													<motion.li variants={item}>
+														{ingredient}
+													</motion.li>
+												);
+											}
+										)}
+									</ul>
+								</div>
+							</div>
 						</div>
-						<img
-							alt="laptop"
-							src="https://assets.website-files.com/5e5e1b411c30197c38b6c1ed/5ed8c0f72fd39791a80a31fa_Macbook.png"
-							className="h-fit w-3/5"
-						></img>
+						<div className="flex w-3/5 items-center justify-center max-xl:w-11/12">
+							<div className="laptop flex h-screen max-xl:h-full w-full items-center justify-center">
+								<motion.Iframe
+									src={section.link}
+									onMouseEnter={cursorInvisible}
+									onMouseLeave={cursorDefault}
+									className="laptopRes rounded-xl"
+								></motion.Iframe>
+							</div>
+						</div>
 						{/* <motion.Iframe
 				src=""
 				// src="https://crypto-live-visualizer.onrender.com/"

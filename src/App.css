@@ -143,3 +143,26 @@ circle {
 	stroke-width: 15%;
 	fill: none;
 }
+
+.laptop {
+	background-image: url("https://assets.website-files.com/5e5e1b411c30197c38b6c1ed/5ed8c0f72fd39791a80a31fa_Macbook.png");
+	/* background-color: #6effb1; */
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.laptopRes {
+	width: 89%;
+	height: calc(60vw * 0.52);
+	margin: 0% 10.5%;
+	margin-bottom: 3%;
+	background-image: url("https://i.giphy.com/media/ycfHiJV6WZnQDFjSWH/giphy.webp");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+@media not all and (min-width: 1280px) {
+	
+}
