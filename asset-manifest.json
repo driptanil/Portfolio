@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Portfolio/static/css/main.3c801477.css",
-    "main.js": "/Portfolio/static/js/main.58f08fdb.js",
+    "main.css": "/Portfolio/static/css/main.f42b0839.css",
+    "main.js": "/Portfolio/static/js/main.d82ad80d.js",
     "static/media/SpaceGrotesk-VariableFont_wght.ttf": "/Portfolio/static/media/SpaceGrotesk-VariableFont_wght.1036357b9651eff7d3dd.ttf",
     "static/media/Leaf3.svg": "/Portfolio/static/media/Leaf3.74de73099932037cb2fe3e557141fabc.svg",
     "static/media/Leaf2.svg": "/Portfolio/static/media/Leaf2.084137ee6018d99c9afa1d37a4fa0dff.svg",
     "static/media/Leaf1.svg": "/Portfolio/static/media/Leaf1.d7eb823bd02eeaf3f7f58557f519c42b.svg",
     "index.html": "/Portfolio/index.html",
-    "main.3c801477.css.map": "/Portfolio/static/css/main.3c801477.css.map",
-    "main.58f08fdb.js.map": "/Portfolio/static/js/main.58f08fdb.js.map"
+    "main.f42b0839.css.map": "/Portfolio/static/css/main.f42b0839.css.map",
+    "main.d82ad80d.js.map": "/Portfolio/static/js/main.d82ad80d.js.map"
   },
   "entrypoints": [
-    "static/css/main.3c801477.css",
-    "static/js/main.58f08fdb.js"
+    "static/css/main.f42b0839.css",
+    "static/js/main.d82ad80d.js"
   ]
 }
